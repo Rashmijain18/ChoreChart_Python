@@ -48,7 +48,7 @@ Required environment variables:
 
 ```env
 # Database
-DATABASE_URL="postgresql://user:password@localhost:5432/chorechart"
+DATABASE_URL="postgresql://user:password@localhost:5433/chorechart"
 
 # Authentication
 JWT_SECRET="your-secret-key"
@@ -104,15 +104,15 @@ npm run test:integration
 
 ```json
 {
-	"extends": [
-		"eslint:recommended",
-		"plugin:@typescript-eslint/recommended",
-		"plugin:react/recommended",
-		"plugin:react-hooks/recommended"
-	],
-	"rules": {
-		// Project-specific rules
-	}
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "rules": {
+    // Project-specific rules
+  }
 }
 ```
 
@@ -120,11 +120,11 @@ npm run test:integration
 
 ```json
 {
-	"semi": true,
-	"singleQuote": true,
-	"tabWidth": 2,
-	"trailingComma": "es5",
-	"printWidth": 100
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "printWidth": 100
 }
 ```
 
@@ -186,7 +186,7 @@ npm run test:api
    - Reinstall: `npm install`
 
 3. **Port Conflicts**
-   - Check if ports 3000, 5432 are available
+   - Check if ports 3000, 5433 are available
    - Update ports in .env if needed
 
 ## Performance Optimization

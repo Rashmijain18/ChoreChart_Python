@@ -16,7 +16,7 @@ This guide will walk you through setting up the ChoreChart application using Doc
 
 The application consists of 4 main services:
 
-- **PostgreSQL Database** (port 5432)
+- **PostgreSQL Database** (port 5433)
 - **pgAdmin** - Database management tool (port 5050)
 - **FastAPI Backend** (port 4000) - Python-based
 - **React Frontend** (port 3000)
@@ -34,7 +34,7 @@ cd /Users/apple/Desktop/Rashmi_Code_repo/ChoreChart_python/ChoreChart
 Copy the environment template and customize if needed:
 
 ```bash
-cp env.example .env
+POSTGRES_DB=chorechart_python
 ```
 
 ### Step 3: Start Docker Desktop
@@ -135,12 +135,12 @@ docker-compose ps
 
 ### 1. PostgreSQL Database
 
-- **Container**: chorechart-db
-- **Port**: 5432
-- **Database**: chorechart
-- **User**: admin
-- **Password**: adminpass
-- **Volume**: postgres_data (persistent data)
+**Container**: chorechart-db
+**Port**: 5433
+**Database**: chorechart_python
+**User**: admin
+**Password**: adminpass
+**Volume**: postgres_data (persistent data)
 
 ### 2. pgAdmin
 
@@ -217,6 +217,7 @@ All services include health checks:
 - **Database**: PostgreSQL readiness check
 - **Backend**: HTTP health endpoint at /health
 - **Frontend**: HTTP availability check
+  docker-compose exec postgres psql -U admin -d chorechart_python
 
 ## Volumes
 
@@ -241,7 +242,7 @@ Persistent data is stored in Docker volumes:
 # Check what's using the port
 lsof -i :3000
 lsof -i :4000
-lsof -i :5432
+lsof -i :5433
 
 # Stop conflicting services or change ports in docker-compose.yml
 ```
