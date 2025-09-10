@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # This tells your app how to connect to the database
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://admin:adminpass@postgres:5432/chorechart_python")
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://admin:adminpass@postgres:5433/chorechart_python")
 
 # Create the database engine (like a connection manager)
 engine = create_engine(

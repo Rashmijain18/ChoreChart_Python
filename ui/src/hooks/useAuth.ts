@@ -28,6 +28,7 @@ const loginUser = async (
 }
 
 const registerParent = async (data: RegisterData): Promise<AuthResponse> => {
+  console.log('Registering user with data:', data)
   return await api.post<AuthResponse>('/register', { ...data, role: 'parent' })
 }
 
@@ -64,6 +65,15 @@ export const useAuth = () => {
 
   const registerMutation = useMutation({
     mutationFn: registerParent,
+    onSuccess: () => {
+      router.navigate({
+        to: '/',
+        search: { message: 'Registration successful!' },
+      })
+    },
+    onError: (error) => {
+      console.error('Registration error:', error)
+    },
   })
 
   return {

@@ -22,10 +22,6 @@ const RegisterParent: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     registerParent(formData)
-    router.navigate({
-      to: '/',
-      search: { message: 'Registration successful!' },
-    })
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
