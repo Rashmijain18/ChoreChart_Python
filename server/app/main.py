@@ -2,6 +2,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .api import users
+from .api import dashboard
+from .api import child
 
 app = FastAPI()
 
@@ -20,3 +22,5 @@ def health_check():
 
 
 app.include_router(users.router)
+app.include_router(dashboard.router)
+app.include_router(child.router)

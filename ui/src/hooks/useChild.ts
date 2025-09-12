@@ -61,6 +61,7 @@ export const useChild = (parentId: string | undefined) => {
   const createMutation = useMutation({
     mutationFn: createChild,
     onSuccess: ({ data }) => {
+      console.log({ data })
       queryClient.setQueryData(['children', parentId], (old: Child[]) => {
         return [...old, data]
       })
